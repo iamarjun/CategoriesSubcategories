@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.layout_array.view.*
 import java.util.*
 
-class ArrayAdapter(private val list: Array<Array<IntArray>>) : RecyclerView.Adapter<ArrayAdapter.ArrayViewHolder>() {
+class ArrayAdapter(private val list: List<Categories>) : RecyclerView.Adapter<ArrayAdapter.ArrayViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
     override fun onBindViewHolder(p0: ArrayViewHolder, p1: Int) {
 
-        p0.array.text = Arrays.deepToString(list[p1])
+        p0.array.text = list[p1].subcategories.toString()
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ArrayViewHolder {

@@ -9,12 +9,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val lala: Array<Array<IntArray>> = arrayOf(A, B, C, D, E, F, G, H, I, J, K)
-    private val lalala: Array<Array<IntArray>> = arrayOf(A, B, C, D, E, F, G, H, I, J, K)
+//    private val lala: Categories = arrayOf(A, B, C, D, E, F, G, H, I, J, K)
+//    private val lalala: Array<Array<IntArray>> = arrayOf(A, B, C, D, E, F, G, H, I, J, K)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         list.apply {
             layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
@@ -23,16 +24,14 @@ class MainActivity : AppCompatActivity() {
 
 
         sort.setOnClickListener {
-            lalala.sortBy { it.size }
-
             list.apply {
-                adapter = ArrayAdapter(lalala)
+                adapter = ArrayAdapter(categories1.sortedBy { it.subcategories.size })
             }
         }
 
         reset.setOnClickListener {
             list.apply {
-                adapter = ArrayAdapter(lala)
+                adapter = ArrayAdapter(categories2)
             }
 
         }
@@ -42,26 +41,51 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
 
-        val a: IntArray = intArrayOf(2)
-        val b: IntArray = intArrayOf(1, 3, 5, 6)
-        val d: IntArray = intArrayOf(1, 3, 7)
-        val f: IntArray = intArrayOf(0, 3)
-        val g: IntArray = intArrayOf(1, 3, 5, 6, 5, 4)
-        val h: IntArray = intArrayOf(1)
-        val i: IntArray = intArrayOf(1, 3, 5, 6, 7, 8, 9)
-        val j: IntArray = intArrayOf(1, 3, 0)
+        val a = listOf(2)
+        val b = listOf(1, 3, 5, 6)
+        val d = listOf(1, 3, 7)
+        val f = listOf(0, 3)
+        val g = listOf(1, 3, 5, 6, 5, 4)
+        val h = listOf(1)
+        val i = listOf(1, 3, 5, 6, 7, 8, 9)
+        val j = listOf(1, 3, 0)
 
-        val A: Array<IntArray> = arrayOf(a, b, d, f, g, h, i, j)
-        val B: Array<IntArray> = arrayOf(a, b, d, f, g, h, i)
-        val C: Array<IntArray> = arrayOf(a, b, d, f, g, h)
-        val D: Array<IntArray> = arrayOf(a, b, d, h, i, j)
-        val E: Array<IntArray> = arrayOf(a, b, f, g, h, i, j)
-        val F: Array<IntArray> = arrayOf(f, g, h, i, j)
-        val G: Array<IntArray> = arrayOf(a, d, f, g, h, i, j)
-        val H: Array<IntArray> = arrayOf(a, b, g, h, i, j)
-        val I: Array<IntArray> = arrayOf(a, b, g)
-        val J: Array<IntArray> = arrayOf(a, h, i, j)
-        val K: Array<IntArray> = arrayOf(a, b, h, i, j)
+        val k = listOf("arjun", "manoj", "iamawesome", "alwaysbaked")
+        val l = listOf("arjun", "iamawesome", "alwaysbaked")
+        val m = listOf("arjun", "manoj", "alwaysbaked")
+        val n = listOf("manoj", "iamawesome", "alwaysbaked")
 
+        val Aa = listOf(a, b, d, f, g, h, i, j)
+        val Bb = listOf(a, b, d, f, g, h, i)
+        val Cc = listOf(a, b, d, f, g, h)
+        val Dd = listOf(a, b, d, h, i, j)
+        val Ee = listOf(a, b, f, g, h, i, j)
+
+        val Ff = listOf(f, g, k, l, m, n)
+        val Gg = listOf(k, l, n, f, g, h, i, j, f, d, k ,d, m)
+        val Hh = listOf(a, b, g, h, i, j)
+        val Ii = listOf(a, k, l)
+        val Jj = listOf(k, l, m, n)
+        val Kk = listOf(k, n, j, l, m)
+
+        val categories1 : List<Categories> = listOf(
+                Categories(Gg),
+                Categories(Ff),
+                Categories(Hh),
+                Categories(Ii),
+                Categories(Jj),
+                Categories(Kk),
+                Categories(Aa)
+        )
+
+        val categories2 : List<Categories> = listOf(
+                Categories(Gg),
+                Categories(Ff),
+                Categories(Hh),
+                Categories(Ii),
+                Categories(Jj),
+                Categories(Kk),
+                Categories(Aa)
+        )
     }
 }
