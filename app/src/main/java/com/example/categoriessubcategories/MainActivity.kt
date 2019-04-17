@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         sort.setOnClickListener {
             list.apply {
-                adapter = ArrayAdapter(categories1.sortedBy { it.subcategories.size })
+                adapter = ArrayAdapter(categories3.sortedBy { it.subcategories!!.size })
             }
         }
 
         reset.setOnClickListener {
             list.apply {
-                adapter = ArrayAdapter(categories2)
+                adapter = ArrayAdapter(categories3)
             }
 
         }
@@ -68,24 +68,34 @@ class MainActivity : AppCompatActivity() {
         val Jj = listOf(k, l, m, n)
         val Kk = listOf(k, n, j, l, m)
 
-        val categories1 : List<Categories> = listOf(
-                Categories(Gg),
-                Categories(Ff),
-                Categories(Hh),
-                Categories(Ii),
-                Categories(Jj),
-                Categories(Kk),
-                Categories(Aa)
+//        val categories1 : List<Categories> = listOf(
+//                Categories(Gg),
+//                Categories(Ff),
+//                Categories(Hh),
+//                Categories(Ii),
+//                Categories(Jj),
+//                Categories(Kk),
+//                Categories(Aa)
+//        )
+//
+//        val categories2 : List<Categories> = listOf(
+//                Categories(Gg),
+//                Categories(Ff),
+//                Categories(Hh),
+//                Categories(Ii),
+//                Categories(Jj),
+//                Categories(Kk),
+//                Categories(Aa)
+//        )
+
+        val categories3 : List<Categories> = listOf(
+                Categories(listOf(Categories(listOf(Categories(null), Categories(null), Categories(null), Categories(null))), Categories(null), Categories(null), Categories(null))),
+                Categories(listOf(Categories(null), Categories(listOf(Categories(null), Categories(null), Categories(null), Categories(null))), Categories(null))),
+                Categories(listOf(Categories(null))),
+                Categories(listOf(Categories(null), Categories(null))),
+                Categories(listOf(Categories(null), Categories(listOf(Categories(listOf(Categories(null), Categories(null), Categories(null), Categories(null))), Categories(null), Categories(null), Categories(null))), Categories(null), Categories(null)))
+
         )
 
-        val categories2 : List<Categories> = listOf(
-                Categories(Gg),
-                Categories(Ff),
-                Categories(Hh),
-                Categories(Ii),
-                Categories(Jj),
-                Categories(Kk),
-                Categories(Aa)
-        )
     }
 }

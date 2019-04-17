@@ -1,5 +1,5 @@
 package com.example.categoriessubcategories
 
 data class Categories(
-        val subcategories: List<Any>
+        val subcategories: List<Categories>?
 )
